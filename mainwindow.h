@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include "projectconfig.h"
 #include "projectstorage.h"
-
+#include <QFileDialog>
+#include "prefirstwindow.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -20,6 +21,8 @@ public:
 private slots:
     void on_okButton_clicked();
 
+    void slot(ProjectConfig*);
+
 private:
     void generateDefaultDirectory(QString path, QString projectName);
     void startProgressImitation();
@@ -27,5 +30,6 @@ private:
     ProjectConfig *projectConfig;
     ProjectStorage *projectStorage;
     Ui::MainWindow *ui;
+    PreFirstWindow *firstwindow;
 };
 #endif // MAINWINDOW_H

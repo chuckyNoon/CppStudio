@@ -13,21 +13,27 @@ SOURCES += \
     filehelper.cpp \
     main.cpp \
     mainwindow.cpp \
+    prefirstwindow.cpp \
     projectbuilder.cpp \
     projectstorage.cpp
 
 HEADERS += \
     filehelper.h \
     mainwindow.h \
+    prefirstwindow.h \
     projectbuilder.h \
     projectconfig.h \
     projectstorage.h \
     threadhelper.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    prefirstwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resoursec.qrc
