@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <QScrollBar>
 #include <sstream>
+#include <QListWidget>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,20 +15,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    QString defaultFolder = "C:\\Users\\jju\\Documents"; // remove hardcode
-    QString projectName = "q2z";
-
-    projectConfig = new ProjectConfig(
-        projectName,
-        defaultFolder,
-        "C:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe",
-        "C:\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe"
-        );
-    projectStorage = new ProjectStorage(projectConfig);
-    projectStorage->setupFiles();
-
-    ui->codeTextEdit->setText(projectStorage->getMainCpp());
+    QListWidgetItem *item_1 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Hui");
+    ui->fileListView->addItem(item_1);
+    QListWidgetItem *item_2 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Zopa");
+    ui->fileListView->addItem(item_2);
+    QListWidgetItem *item_3 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Vagina");
+    ui->fileListView->addItem(item_3);
+    QListWidgetItem *item_4 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Blyad");
+    ui->fileListView->addItem(item_4);
+    QListWidgetItem *item_5 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Suka");
+    ui->fileListView->addItem(item_5);
+    QListWidgetItem *item_6 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "PUTIN");
+    ui->fileListView->addItem(item_6);
+    firstwindow = new PreFirstWindow;
+    firstwindow -> show();
+    connect(firstwindow, &PreFirstWindow::signal, this, &MainWindow::slot);
 
     ui->progressBar->setRange(0, 3);
     ui->progressBar->setVisible(false);
@@ -66,3 +68,14 @@ void MainWindow::on_okButton_clicked()
     ui->progressBar->setValue(0);
     ui->progressBar->setVisible(true);
 }
+
+void MainWindow::slot(ProjectConfig* newConfig)
+{
+   projectConfig = newConfig;
+   projectStorage = new ProjectStorage(projectConfig);
+   projectStorage->setupFiles();
+   ui->codeTextEdit->setText(projectStorage->getMainCpp());
+}
+
+
+
