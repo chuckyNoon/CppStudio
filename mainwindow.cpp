@@ -15,17 +15,17 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QListWidgetItem *item_1 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Hui");
+    QListWidgetItem *item_1 = new QListWidgetItem("1");
     ui->fileListView->addItem(item_1);
-    QListWidgetItem *item_2 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Zopa");
+    QListWidgetItem *item_2 = new QListWidgetItem("2");
     ui->fileListView->addItem(item_2);
-    QListWidgetItem *item_3 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Vagina");
+    QListWidgetItem *item_3 = new QListWidgetItem("3");
     ui->fileListView->addItem(item_3);
-    QListWidgetItem *item_4 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Blyad");
+    QListWidgetItem *item_4 = new QListWidgetItem("4");
     ui->fileListView->addItem(item_4);
-    QListWidgetItem *item_5 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "Suka");
+    QListWidgetItem *item_5 = new QListWidgetItem("5");
     ui->fileListView->addItem(item_5);
-    QListWidgetItem *item_6 = new QListWidgetItem(QIcon(":/putler/img/hui.jpg"), "PUTIN");
+    QListWidgetItem *item_6 = new QListWidgetItem("6");
     ui->fileListView->addItem(item_6);
     firstwindow = new PreFirstWindow;
     firstwindow -> show();
