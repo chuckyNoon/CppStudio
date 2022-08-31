@@ -1,12 +1,16 @@
 #include "prefirstwindow.h"
 #include "ui_prefirstwindow.h"
 #include "projectconfig.h"
+#include "threadhelper.h"
 
 PreFirstWindow::PreFirstWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PreFirstWindow)
 {
     ui->setupUi(this);
+    on_okPushBut_clicked(); // delete
+
+    ThreadHelper::dispatchDelayed(1, [this]{this->on_okPushBut_clicked();});
 }
 
 PreFirstWindow::~PreFirstWindow()
@@ -22,18 +26,16 @@ void PreFirstWindow::on_directoryButton_clicked()
 }
 
 
-
 void PreFirstWindow::on_okPushBut_clicked()
 {
-    ui->nameLineEdit->displayText();
     auto newConfig = new ProjectConfig(ui->nameLineEdit->displayText(),
                       ui->directoryLineEdit->displayText(),
                       ui->cmakeLineEdit->displayText(),
                       ui->compilerLineEdit->displayText());
-    emit signal(newConfig);
+    auto newConfig1 = new ProjectConfig("polygon", "C:/Users/jju/Documents","C:/Qt/Tools/CMake_64/bin/cmake.exe", "C:/Qt/Tools/mingw1120_64/bin/g++.exe"); // delete
+    emit signal(newConfig1);
+    this->close();
 }
-
-
 
 
 void PreFirstWindow::on_cmakeButton_clicked()

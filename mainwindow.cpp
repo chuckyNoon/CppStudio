@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->fileListView->addItem(item_5);
     QListWidgetItem *item_6 = new QListWidgetItem("6");
     ui->fileListView->addItem(item_6);
+
     firstwindow = new PreFirstWindow;
     firstwindow -> show();
     connect(firstwindow, &PreFirstWindow::signal, this, &MainWindow::slot);
@@ -34,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->progressBar->setRange(0, 3);
     ui->progressBar->setVisible(false);
     ui->progressBar->setValue(0);
+
+    setWindowTitle(tr("Cpp Studio"));
 }
 
 MainWindow::~MainWindow()
@@ -69,13 +72,30 @@ void MainWindow::on_okButton_clicked()
     ui->progressBar->setVisible(true);
 }
 
+
+
 void MainWindow::slot(ProjectConfig* newConfig)
 {
-   projectConfig = newConfig;
-   projectStorage = new ProjectStorage(projectConfig);
-   projectStorage->setupFiles();
-   ui->codeTextEdit->setText(projectStorage->getMainCpp());
+    projectConfig = newConfig;
+    projectStorage = new ProjectStorage(projectConfig);
+    projectStorage->setupFiles();
+
+    setupEditor();
 }
 
+void MainWindow::setupEditor()
+{
+    QFont font;
+    font.setFamily("Courier");
+    font.setFixedPitch(true);
+    font.setPointSize(10);
 
+
+    ui->codeTextEdit->setFont(font);
+
+    highlighter = new Highlighter(ui->codeTextEdit->document());
+
+    ui->codeTextEdit->setPlainText(projectStorage->getMainCpp());
+    qDebug() << "here";
+}
 
