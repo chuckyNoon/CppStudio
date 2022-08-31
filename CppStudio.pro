@@ -11,7 +11,6 @@ CONFIG += c++17
 
 SOURCES += \
     coloredtext.cpp \
-    coloredtexthelper.cpp \
     filehelper.cpp \
     highlighter.cpp \
     main.cpp \
@@ -22,7 +21,6 @@ SOURCES += \
 
 HEADERS += \
     coloredtext.h \
-    coloredtexthelper.h \
     filehelper.h \
     highlighter.h \
     mainwindow.h \

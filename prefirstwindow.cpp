@@ -34,7 +34,6 @@ void PreFirstWindow::on_okPushBut_clicked()
                       ui->compilerLineEdit->displayText());
     auto newConfig1 = new ProjectConfig("polygon", "C:/Users/jju/Documents","C:/Qt/Tools/CMake_64/bin/cmake.exe", "C:/Qt/Tools/mingw1120_64/bin/g++.exe"); // delete
     emit signal(newConfig1);
-    this->hide();
     this->close();
 }
 
