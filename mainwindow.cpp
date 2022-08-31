@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->fileListView->addItem(item_5);
     QListWidgetItem *item_6 = new QListWidgetItem("6");
     ui->fileListView->addItem(item_6);
+
     firstwindow = new PreFirstWindow;
     firstwindow -> show();
     connect(firstwindow, &PreFirstWindow::signal, this, &MainWindow::slot);
@@ -34,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->progressBar->setRange(0, 3);
     ui->progressBar->setVisible(false);
     ui->progressBar->setValue(0);
+
+    setWindowTitle(tr("Cpp Studio"));
 }
 
 MainWindow::~MainWindow()
@@ -78,7 +81,6 @@ void MainWindow::slot(ProjectConfig* newConfig)
     projectStorage->setupFiles();
 
     setupEditor();
-    setWindowTitle(tr("Syntax Highlighter"));
 }
 
 void MainWindow::setupEditor()
