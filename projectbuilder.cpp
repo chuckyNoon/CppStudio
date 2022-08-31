@@ -17,7 +17,6 @@ ProjectBuilder::ProjectBuilder()
 
 }
 
-
 void ProjectBuilder::buildAndRun(ProjectConfig config, std::function<void(QString)> callback)
 {
     QString buildDirectory = config.parentPath + "\\build-" + config.name + "-Debug";

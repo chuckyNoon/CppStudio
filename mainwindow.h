@@ -5,7 +5,10 @@
 #include "projectconfig.h"
 #include "projectstorage.h"
 #include <QFileDialog>
+#include <QTextEdit>
+#include "highlighter.h"
 #include "prefirstwindow.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,10 +25,13 @@ private slots:
     void on_okButton_clicked();
 
     void slot(ProjectConfig*);
-
 private:
     void generateDefaultDirectory(QString path, QString projectName);
     void startProgressImitation();
+    void setupEditor();
+
+    Highlighter *highlighter;
+
     QString outputText;
     ProjectConfig *projectConfig;
     ProjectStorage *projectStorage;

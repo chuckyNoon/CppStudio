@@ -10,7 +10,10 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    coloredtext.cpp \
+    coloredtexthelper.cpp \
     filehelper.cpp \
+    highlighter.cpp \
     main.cpp \
     mainwindow.cpp \
     prefirstwindow.cpp \
@@ -18,7 +21,10 @@ SOURCES += \
     projectstorage.cpp
 
 HEADERS += \
+    coloredtext.h \
+    coloredtexthelper.h \
     filehelper.h \
+    highlighter.h \
     mainwindow.h \
     prefirstwindow.h \
     projectbuilder.h \
