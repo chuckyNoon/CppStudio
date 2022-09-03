@@ -139,17 +139,21 @@ void MainWindow::showRightSideBar()
 
 void MainWindow::build()
 {
-    UiHelper::showMessage("build"); // to implement logic
+    auto f = QtConcurrent::run(ProjectBuilder::build, *projectConfig);
 }
 
 void MainWindow::run()
 {
-    UiHelper::showMessage("run"); // to implement logic
+    auto f = QtConcurrent::run(
+        ProjectBuilder::buildAndRun,
+        *projectConfig,
+        [](QString log) -> void {}
+        );
 }
 
 void MainWindow::clean()
 {
-    UiHelper::showMessage("clean"); // to implement logic
+    auto f = QtConcurrent::run(ProjectBuilder::clean, *projectConfig);
 }
 
 void MainWindow::sendFeedback()
@@ -184,7 +188,7 @@ void MainWindow::createActions()
     newProjectAction = new QAction(tr("&New Porject"), this);
     connect(newProjectAction, &QAction::triggered, this, &MainWindow::newProject);
 
-    newFileAction = new QAction(tr("&New file"), this);
+    newFileAction = new QAction(tr("&New File"), this);
     connect(newFileAction, &QAction::triggered, this, &MainWindow::newFile);
 
     openAction = new QAction(tr("&Open"), this);
