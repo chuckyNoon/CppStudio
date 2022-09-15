@@ -17,7 +17,8 @@ SOURCES += \
     mainwindow.cpp \
     prefirstwindow.cpp \
     projectbuilder.cpp \
-    projectstorage.cpp
+    projectstorage.cpp \
+    uihelper.cpp
 
 HEADERS += \
     coloredtext.h \
@@ -28,7 +29,8 @@ HEADERS += \
     projectbuilder.h \
     projectconfig.h \
     projectstorage.h \
-    threadhelper.h
+    threadhelper.h \
+    uihelper.h
 
 FORMS += \
     mainwindow.ui \
